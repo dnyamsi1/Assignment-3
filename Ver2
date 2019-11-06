@@ -1,0 +1,193 @@
+   /** 
+   The LinkedList class implements a Linked list that contains inventory
+*/
+import java.util.Scanner;
+class LinkedList
+{
+    /**
+       The Node class stores a list element
+       and a reference to the next node.
+    */
+    
+    private class Node
+    {
+        int id; //Item Number
+        String Category; //category
+        String Description; // Description 
+        int value;//value
+        Node next;      
+        
+        /**
+           Constructor.            
+           @param val The element to store in the node.
+           @param n The reference to the successor node.
+        */
+        
+        Node(int itnum, String Catg, String Desc, int val, Node n)
+        {
+            id = itnum;
+            Category = Catg;
+            Description = Desc;
+            value = val;
+            next = n;
+        } 
+        
+        /**
+           Constructor. 
+           @param val The element to store in the node.
+       */
+        
+        Node(int itnum, String Catg, String Desc, int val)
+        {
+           // Call the other (sister) constructor.
+           id = itnum;
+            Category = Catg;
+            Description = Desc;
+            value = val;       
+        }  
+    }	
+	 
+    private Node first;  // list head
+    private Node last;   // last element in list
+	     
+    /**
+       Constructor.
+    */
+    
+    public LinkedList()
+    {
+        first = null;
+        last = null;        
+    }
+    
+    /**
+       The isEmpty method checks to see 
+		 if the list is empty.
+		 @return true if list is empty, 
+		 false otherwise.
+    */
+    
+    public boolean isEmpty()
+    {        
+        return first == null;       
+    }
+    
+    /**
+       The size method returns the length of the list.
+       @return The number of elements in the list.
+    */
+    
+    public int size()
+    {
+       int count = 0;
+       Node p = first;     
+       while (p != null)
+       {
+           // There is an element at p
+           count ++;
+           p = p.next;
+       }
+       return count;
+    }
+    
+    /**
+       The add method adds an element to
+		 the end of the list.
+       @param e The value to add to the
+		 end of the list.       
+    */
+    
+    public void add(int itnum, String Catg, String Desc, int val)
+    {
+      if (isEmpty()) 
+      {
+          first = new Node(itnum,Catg,Desc,val);
+          last = first;
+      }
+      else
+      {
+          // Add to end of existing list
+          last.next = new Node(itnum,Catg,Desc,val);
+          last = last.next;
+      }      
+    }
+    
+    public void deleteLast() { 
+    Node curr = null; 
+    for (curr = this.first; curr.next.next != null;curr = curr.next) { 
+    } 
+    curr.next = null;
+    }
+    
+    /**
+       The toString method computes the string
+       representation of the list.
+       @return The string form of the list.
+    */
+    
+    public String toString()
+    {
+      StringBuilder strBuilder = new StringBuilder();
+      
+      // Use p to walk down the linked list
+      Node p = first;
+      while (p != null)
+      {
+         strBuilder.append(p.id + "\t"); 
+         strBuilder.append(p.Category + "\t"); 
+         strBuilder.append(p.Description + "\t"); 
+         strBuilder.append(p.value + "\n"); 
+         p = p.next;
+      }      
+      return strBuilder.toString(); 
+    }
+    
+ 
+        
+ // Main method to test the linkedlist   
+    public static void main(String [] args)
+    {
+       Scanner input = new Scanner(System.in);
+   
+  LinkedList ll = new LinkedList();
+
+   System.out.println("Please enter the number corresponding to the action you would like to take.");
+      
+        //display formats
+        System.out.println("1\t Add item");
+        System.out.println("2\t remove item");
+        System.out.println("3\t view inventory");
+        System.out.println("4\t view inventory by category");
+        
+        //taker users choice
+        int userChoice = input.nextInt();
+         
+         switch(userChoice) {
+            
+            case 1 : System.out.print("which category is the item under?" );
+               System.out.println("\n1)Food\n2)coins\n3)archeology tools\n4)artifacts\n5)Documents");
+               int category = input.nextInt();
+               
+                  switch(category){
+                     
+                     case 1: System.out.println("Enter food name: ");
+                             String foodName = input.next();
+                            
+                             System.out.println("Enter item ID: ");
+                             int id = input.nextInt();
+                             
+                             System.out.println("Entre description: ");
+                             String description = input.next();
+                             
+                             System.out.println("Enter value: ");
+                             int value = input.nextInt();
+                             
+                           ll.add(id,foodName,description,value);
+                           
+                           System.out.print(ll);
+                            
+                             
+}
+}
+    }
+}
