@@ -89,20 +89,6 @@ class LinkedList
        }
        return count;
     }
-    //TO DO EDIT FUNCTION
-    public String sizeByCat(String category)
-    {
-       int count = 0;
-       Node p = first;     
-       while (p != null)
-       {
-           // There is an element at p
-           count ++;
-           p = p.next;
-       }
-       return count;
-    }
-
     
     /**
        The add method adds an element to
@@ -156,15 +142,10 @@ class LinkedList
       return strBuilder.toString(); 
     }
     
- }
-
-        
  
-
-import java.util.Scanner;
-
-public class rolePlaying{
-   public static void main(String [] args)
+        
+ // Main method to test the linkedlist   
+    public static void main(String [] args)
     {
        Scanner input = new Scanner(System.in);
    
@@ -210,12 +191,10 @@ public class rolePlaying{
         System.out.print("Is inventory empty or not?" + ll.isEmpty()); 
         System.out.println();
         System.out.print("Size of inventory" + ll.size());
-        
-        
-        
-        
-         
-         
-    }
+                            
+                             
 }
-
+}
+    
+    
+ 
