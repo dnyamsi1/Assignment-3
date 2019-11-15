@@ -1,13 +1,13 @@
-/** 
-   The LinkedList class implements a Linked list that contains inventory
-*/
+/*******************************************************************
+The LinkedList class implements a Linked list that contains inventory
+*********************************************************************/
 import java.util.Scanner;
 class LinkedList
 {
-    /**
+    /****************************************
        The Node class stores a list element
        and a reference to the next node.
-    */
+    ***************************************/
 
     private class Node
     {
@@ -32,10 +32,10 @@ class LinkedList
             next = n;
         } 
 
-        /**
+        /****************************************
            Constructor. 
            @param val The element to store in the node.
-       */
+       ******************************************/
 
         Node(int itnum, String Catg, String Desc, int val)
         {
@@ -50,9 +50,9 @@ class LinkedList
     private Node first;  // list head
     private Node last;   // last element in list
 
-    /**
+    /*****************
        Constructor.
-    */
+    ******************/
 
     public LinkedList()
     {
@@ -60,22 +60,20 @@ class LinkedList
         last = null;        
     }
 
-    /**
-       The isEmpty method checks to see 
-		 if the list is empty.
-		 @return true if list is empty, 
-		 false otherwise.
-    */
+    /***********************************************
+    The isEmpty method checks to see if the list is empty.
+    @return true if list is empty, false otherwise.
+    *************************************************/
 
     public boolean isEmpty()
     {        
         return first == null;       
     }
 
-    /**
+    /***********************************************
        The size method returns the length of the list.
        @return The number of elements in the list.
-    */
+    ************************************************/
 
     public int size()
     {
@@ -90,12 +88,12 @@ class LinkedList
        return count;
     }
 
-    /**
-       The add method adds an element to
-		 the end of the list.
-       @param e The value to add to the
-		 end of the list.       
-    */
+    /***********************************************************
+       Method : Add
+       Worked on by : Daniel, Aidan
+       The add method adds an element to the end of the list.
+       @param e The value to add to theend of the list.       
+    ************************************************************/
 
     public void add(int itnum, String Catg, String Desc, int val)
     {
@@ -111,7 +109,10 @@ class LinkedList
           last = last.next;
       }      
     }
-
+    /***********************************************************
+    Method: Delete (from the end)
+    Worked on by: 
+    ***********************************************************/
     public void deleteLast() { 
     Node curr = null; 
     for (curr = this.first; curr.next.next != null;curr = curr.next) { 
@@ -119,11 +120,11 @@ class LinkedList
     curr.next = null;
     }
 
-    /**
+    /***********************************************************
        The toString method computes the string
        representation of the list.
        @return The string form of the list.
-    */
+    ************************************************************/
 
     public String toString()
     {
@@ -143,7 +144,11 @@ class LinkedList
     }
 
 
- // Main method to test the linkedlist   
+    /***********************************************************
+       Method: Main
+       Worked on by: Everyone 
+       Integrated by: Danielle  
+    ************************************************************/   
     public static void main(String [] args)
     {
        Scanner input = new Scanner(System.in);
@@ -158,8 +163,7 @@ class LinkedList
          System.out.println("Would you like to add an item? ( Y or N)");
          String userInput = input.next();
                 
-             do{
-                
+             do{                
                 System.out.println("Enter category name: ");
                 String name = input.next();
                             
